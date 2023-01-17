@@ -25,21 +25,25 @@ class _StatefulState extends State<Stateful> {
         centerTitle: true,
       ),
       body: Center(
-        child: _counter > 10
-            ? TextCounter(counter: _counter)
-            : Column(
-                children: [
-                  const Text('counter > 10'),
-                  ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          _counter = 0;
-                        });
-                      },
-                      child: const Text('Reset')),
-                ],
-              ),
-      ),
+          child: _counter < 10
+              ? Text(
+                  '$_counter',
+                  style: const TextStyle(fontSize: 20, color: Colors.black),
+                )
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text('press button to reset'),
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _counter = 0;
+                          });
+                        },
+                        child: const Text('Reset'))
+                  ],
+                )),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
@@ -49,22 +53,5 @@ class _StatefulState extends State<Stateful> {
         },
       ),
     );
-  }
-}
-
-class TextCounter extends StatelessWidget {
-  const TextCounter({
-    Key? key,
-    required int counter,
-  }) : _counter = counter, super(key: key);
-
-  final int _counter;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-        '$_counter',
-        style: const TextStyle(fontSize: 20, color: Colors.black),
-      );
   }
 }

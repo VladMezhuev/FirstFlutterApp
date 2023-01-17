@@ -2,7 +2,7 @@ import 'package:first_module_project/stateful_class.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(
-  const MaterialApp(debugShowCheckedModeBanner: false, home: PhoneDetail())
+  const MaterialApp(debugShowCheckedModeBanner: false, home: Stateful())
 );
 
 class PhoneDetail extends StatelessWidget {
